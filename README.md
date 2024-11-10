@@ -42,3 +42,8 @@ Build it into a desktop application by doing:
 bun run tauri build # Or npm, pnpm, deno
 ```
 
+3. Create `.env` file and put it in the `src-tauri` directory. Define your [API Ninjas](https://api-ninjas.com/api/loremipsum) API key.
+
+```
+API_KEY=INSERT-API-KEY-HERE
+```
