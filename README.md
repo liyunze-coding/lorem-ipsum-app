@@ -1,7 +1,44 @@
-# Tauri + SvelteKit + TypeScript
+# Lorem Ipsum Generator App
 
-This template should help get you started developing with Tauri, SvelteKit and TypeScript in Vite.
+![alt text](preview.png)
 
-## Recommended IDE Setup
+A simple Lorem Ipsum Generator desktop application, built with Tauri, Sveltekit + Skeleton UI 
 
-[VS Code](https://code.visualstudio.com/) + [Svelte](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode) + [Tauri](https://marketplace.visualstudio.com/items?itemName=tauri-apps.tauri-vscode) + [rust-analyzer](https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer).
+![Tauri Badge](https://img.shields.io/badge/Tauri-24C8D8?logo=tauri&logoColor=fff&style=for-the-badge)
+![Rust Badge](https://img.shields.io/badge/Rust-000?logo=rust&logoColor=fff&style=for-the-badge)
+![TypeScript Badge](https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=fff&style=for-the-badge)
+![Svelte Badge](https://img.shields.io/badge/Svelte-FF3E00?logo=svelte&logoColor=fff&style=for-the-badge)
+![Tailwind CSS Badge](https://img.shields.io/badge/Tailwind%20CSS-06B6D4?logo=tailwindcss&logoColor=fff&style=for-the-badge)
+![Bun Badge](https://img.shields.io/badge/Bun-000?logo=bun&logoColor=fff&style=for-the-badge)
+
+## Installation
+
+1. Clone repository
+
+```
+git clone https://github.com/liyunze-coding/lorem-ipsum-app.git
+```
+
+2. Either:
+
+Install with Bun
+
+```
+bun install
+```
+
+OR
+
+Delete `bun.lockb`, then install with:
+```
+npm install
+pnpm install
+deno install
+```
+
+Build it into a desktop application by doing:
+
+```py
+bun run tauri build # Or npm, pnpm, deno
+```
+
