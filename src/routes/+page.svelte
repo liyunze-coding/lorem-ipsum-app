@@ -13,15 +13,9 @@
 		timeout: 2000,
 	};
 
-	let outputText =
-		$state(`Lorem ipsum nec odio eleifend aliquam sagittis erat mollis tellus etiam,
-		duis iaculis nisl a malesuada lorem nunc tellus fringilla nostra
-		condimentum, dictumst mollis iaculis sollicitudin curabitur odio
-		ultricies laoreet varius. Ultrices gravida est porttitor netus per
-		tempus proin orci condimentum suscipit, per hendrerit aptent quisque
-		fusce nisl facilisis cubilia accumsan. Felis adipiscing nunc malesuada
-		maecenas mi vel taciti erat habitant rutrum, quis suscipit morbi ipsum
-		ultrices a ad feugiat.`);
+	let outputText: string = $state(
+		`Lorem ipsum nec odio eleifend aliquam sagittis erat mollis tellus etiam, duis iaculis nisl a malesuada lorem nunc tellus fringilla nostra condimentum, dictumst mollis iaculis sollicitudin curabitur odio ultricies laoreet varius. Ultrices gravida est porttitor netus per tempus proin orci condimentum suscipit, per hendrerit aptent quisque fusce nisl facilisis cubilia accumsan. Felis adipiscing nunc malesuada maecenas mi vel taciti erat habitant rutrum, quis suscipit morbi ipsum ultrices a ad feugiat.`
+	);
 
 	let paragraphs = $state(2);
 	let wordCount = $state(0);
@@ -32,11 +26,15 @@
 
 	async function generate(e: Event) {
 		e.preventDefault();
-		let r = await invoke("generate_ipsum", { paragraphs: paragraphs });
-		console.log(r);
+		let r: string = await invoke("generate_ipsum", {
+			paragraphs: paragraphs,
+		});
+
+		outputText = r.replaceAll("\n", "\n\n").substring(0, r.length - 2);
 	}
 
 	async function copy() {
+		navigator.clipboard.writeText(outputText);
 		toastStore.trigger(t);
 	}
 </script>
@@ -91,13 +89,13 @@
 		/>
 	</form>
 	<div
-		class="px-5 py-5 bg-[#141414] border border-gray-500 border-solid mt-5 font-['Times_new_Roman']"
+		class="px-5 py-5 bg-[#141414] border border-gray-500 border-solid mt-5 font-['Times_new_Roman'] whitespace-pre-line"
 	>
-		<span class="text-xl">{outputText}</span>
+		<p class="text-xl">{outputText}</p>
 
-		<br />
-		<br />
-		{wordCount} words
+		<p class="mt-3">
+			{wordCount} words
+		</p>
 	</div>
 </main>
 

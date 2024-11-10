@@ -7,9 +7,10 @@ fn greet(name: &str) -> String {
 }
 
 #[tauri::command]
-async fn generate_ipsum(paragraphs: u32) {
+async fn generate_ipsum(paragraphs: u32) -> String {
     let res = lipsum::get_ipsum(paragraphs).await;
-    println!("{:#?}", res);
+
+    res.unwrap().get_text().to_string()
 }
 
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
